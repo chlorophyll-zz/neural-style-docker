@@ -50,14 +50,14 @@ def main(argv=None):
         while i < len(argv):
             # References to inputs/outputs are re-referenced to the mounted /images directory
             if argv[i] == "--content":
-                contents = ["/images/" + x for x in sublist(argv[i+1:], stopper="-")]
+                contents = ["" + x for x in sublist(argv[i+1:], stopper="-")]
                 i += len(contents) + 1
             elif argv[i] == "--style":
-                styles = ["/images/" + x for x in sublist(argv[i+1:], stopper="-")]
+                styles = ["" + x for x in sublist(argv[i+1:], stopper="-")]
                 i += len(styles) + 1
             # Other general parameters
             elif argv[i] == "--output":
-                savefolder = "/images/" + argv[i+1]
+                savefolder = "" + argv[i+1]
                 i += 2
             elif argv[i] == "--alg":
                 alg = argv[i+1]
