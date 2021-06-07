@@ -1,3 +1,4 @@
+import time
 # Callers to neural style algorithms
 from subprocess import call
 from itertools import product
@@ -76,10 +77,10 @@ def styletransfer(contents, styles, savefolder, size=None, alg="gatys", weights=
         tileoverlap = 100
     if algparams is None:
         algparams = []
-
+    timestr = time.strftime("%Y%m%d-%H%M%S")
     # Iterate through all combinations
     for content, style, weight, scale in product(contents, styles, weights, stylescales):
-        outfile = outname(savefolder, content, style, alg, scale, weight)
+        outfile = outname(savefolder, content, style, alg, scale, weight, timestr)
         # If the desired size is smaller than the maximum tile size, use a direct neural style
         if fitsingletile(targetshape(content, size), alg):
             styletransfer_single(content=content, style=style, outfile=outfile, size=size, alg=alg, weight=weight,
