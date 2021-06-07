@@ -1,10 +1,10 @@
-import time
 # Callers to neural style algorithms
 from subprocess import call
 from itertools import product
 from tempfile import TemporaryDirectory, NamedTemporaryFile
 from shutil import copyfile
 import logging
+import time
 from math import ceil
 import numpy as np
 import json
